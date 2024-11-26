@@ -1,15 +1,13 @@
 //ドロワーメニュー
 jQuery("#js-drawer-icon").on("click", function (e) {
   e.preventDefault();
-  jQuery("#js-drawer-icon").toggleClass("is-checked");
   jQuery("#js-drawer-content").toggleClass("is-checked");
-  $("body").toggleClass("is-fixed");
 
 });
 
-jQuery("l-drawer-content__link").on("click", function (e) {
+jQuery(".js-drawer-click").on("click", function (e) {
   e.preventDefault();
-  jQuery("l-drawer-content").removeClass("is-checked");
+  jQuery("#js-drawer-content").removeClass("is-checked");
 });
 
 // mvのスワイパー

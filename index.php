@@ -59,10 +59,10 @@
           </div>
           <nav class="l-header__lists">
             <div class="l-header__lists-heading">
-              <a href="" class="l-header-list">新着情報</a>
-              <a href="" class="l-header-list">TIPS</a>
-              <a href="" class="l-header-list">インタビュー</a>
-              <a href="" class="l-header-list">ニュース</a>
+              <a href="#current" class="l-header-list">新着情報</a>
+              <a href="#tips" class="l-header-list">TIPS</a>
+              <a href="#interview" class="l-header-list">インタビュー</a>
+              <a href="#news" class="l-header-list">ニュース</a>
             </div>
             <div class="l-header__lists-button">
               <a href="" class="l-header-list l-btn">
@@ -84,12 +84,19 @@
           </nav>
         </div>
         <div id="js-drawer-content" class="l-drawer-content">
+        <button
+              id="js-drawer-icon-close"
+              class="l-header__menu-close l-drawer-content__icon-close js-drawer-click"
+            >
+              <span class="l-drawer-content__bar-close"></span>
+              <span class="l-drawer-content__bar-close"></span>
+            </button>
           <nav class="l-drawer-content__menu">
-            <a href="" class="l-drawer-content__link">新着情報</a>
-            <a href="" class="l-drawer-content__link">TIPS</a>
-            <a href="" class="l-drawer-content__link">インタビュー</a>
-            <a href="" class="l-drawer-content__link">ニュース</a>
-            <a href="#" class="l-drawer-content__search"
+            <a href="#current" class="l-drawer-content__link js-drawer-click">新着情報</a>
+            <a href="#tips" class="l-drawer-content__link js-drawer-click">TIPS</a>
+            <a href="#interview" class="l-drawer-content__link js-drawer-click">インタビュー</a>
+            <a href="#news" class="l-drawer-content__link js-drawer-click">ニュース</a>
+            <a href="#" class="l-drawer-content__search js-drawer-click"
               ><img src="<?php echo get_template_directory_uri(); ?>/img/search.png" alt=""
             /></a>
           </nav>
@@ -304,7 +311,7 @@
       </div>
     </section>
 
-    <section class="p-current">
+    <section id="current" class="p-current">
       <div class="p-current__inner">
         <h2 class="c-title p-current__title">
           <div class="c-title__image">
