@@ -270,11 +270,11 @@ body.js-menuOpen {
 }
 
 .l-drawer-content__bar-close:nth-of-type(1) {
-	transform: rotate(30deg);
+  transform: rotate(30deg);
 }
 
 .l-drawer-content__bar-close:nth-of-type(2) {
-	transform: rotate(-30deg);
+  transform: rotate(-30deg);
 }
 
 .l-drawer-content__icon {
@@ -285,16 +285,15 @@ body.js-menuOpen {
   z-index: 50;
 }
 
-.l-drawer-content__icon-close{
-	height: 24px;
-	position: relative;
-	right: 0;
-	width: 36px;
-	z-index: 50;
-	top: 70px;
-    right: -160px;
+.l-drawer-content__icon-close {
+  height: 24px;
+  position: relative;
+  right: 0;
+  width: 36px;
+  z-index: 50;
+  top: 70px;
+  right: -160px;
 }
-
 
 .l-drawer-content__bar {
   background: #fff;
@@ -666,12 +665,21 @@ body.js-menuOpen {
   opacity: 0.5;
 }
 
+.c-arrow-circle.disabled:hover {
+  background-color: initial;
+}
+
 .c-arrow-circle {
   border: 2px solid #fff;
   border-radius: 48px;
   height: 48px;
   position: relative;
   width: 48px;
+  transition: background-color 0.3s;
+}
+
+.c-arrow-circle:hover {
+  background-color: #fff;
 }
 
 .c-arrow-circle--right::after {
@@ -684,7 +692,18 @@ body.js-menuOpen {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
+  transition: color 0.3s;
 }
+
+.c-arrow-circle--right:hover::after {
+  color: #629de2;
+}
+
+.c-arrow-circle--right.disabled:hover::after {
+  color: #fff;
+}
+
+
 
 .c-arrow-circle--left::after {
   color: #fff;
@@ -696,6 +715,15 @@ body.js-menuOpen {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
+  transition: color 0.3s;
+}
+
+.c-arrow-circle--left:hover::after {
+  color: #629de2;
+}
+
+.c-arrow-circle--left.disabled:hover::after {
+  color: #fff;
 }
 
 .c-tag {
