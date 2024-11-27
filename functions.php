@@ -14,4 +14,30 @@ function my_setup() {
     
     }
     add_action("after_setup_theme", "my_setup");
+
+ function button_shortcode($attrs, $content ='') {
+    return '<button class="c-button-l p-content__button"><a href="' . $attrs['link'] . '" class="c-button-l__link"> '. $content.'</a></button>';
+ }
+ add_shortcode('btn', 'button_shortcode');
+
+ function quotation_shortcode($attrs, $content ='') {
+    return '<div class="p-quotation">
+            <q class="p-quotation__text">' .$attrs['text']. '</q>
+            <a href="'.$attrs['link_url'].'" class="p-quotation__link">'.$attrs['link_text'].'</a></div>';
+ }
+ add_shortcode('quotation', 'quotation_shortcode');
+
+ function set_post_views($postID) {
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+    }else{
+      $count++;
+      update_post_meta($postID, $count_key, $count);
+    }
+  }
 ?>
+

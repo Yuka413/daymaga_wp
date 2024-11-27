@@ -53,7 +53,7 @@
               <span class="l-drawer-icon__bar"></span>
               <span class="l-drawer-icon__bar"></span>
             </button>
-            <a href="#" class="l-header-nav__search"
+            <a href="#search" class="l-header-nav__search"
               ><img src="<?php echo get_template_directory_uri(); ?>/img/search.png" alt=""
             /></a>
           </div>
@@ -78,7 +78,7 @@
                 </div>
               </a>
             </div>
-            <a href="" class="l-header-list__search"
+            <a href="#search" class="l-header-list__search"
               ><img src="<?php echo get_template_directory_uri(); ?>/img/search.png" alt=""
             /></a>
           </nav>
@@ -96,7 +96,7 @@
             <a href="#tips" class="l-drawer-content__link js-drawer-click">TIPS</a>
             <a href="#interview" class="l-drawer-content__link js-drawer-click">インタビュー</a>
             <a href="#news" class="l-drawer-content__link js-drawer-click">ニュース</a>
-            <a href="#" class="l-drawer-content__search js-drawer-click"
+            <a href="#search" class="l-drawer-content__search"
               ><img src="<?php echo get_template_directory_uri(); ?>/img/search.png" alt=""
             /></a>
           </nav>

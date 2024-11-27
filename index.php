@@ -8,195 +8,39 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
               <!-- Slides -->
-              <div class="swiper-slide p-gallery__slide">
-                <a href="" class="c-post">
+               <?php if(have_posts()): ?>
+                <?php while(have_posts()): ?>
+                  <?php the_post(); ?>
+                  <div class="swiper-slide p-gallery__slide">
+                <a href="<?php the_permalink(); ?>" class="c-post">
                   <div class="c-post__card">
                     <div class="c-post__image">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/card-2.png" alt="" />
+                      <?php echo the_post_thumbnail(); ?>
                     </div>
                     <div class="c-post__content">
-                      <div class="c-post__date">2024.07.28</div>
+                      <time datetime="<?php the_time('c'); ?>" class="c-post__date"><?php the_time("Y.m.j"); ?></datetime=>
                       <div class="c-post__title">
-                        人材育成の新潮流：コンサルティングがもたらす効果的なトレー...
+                        <?php echo the_title(); ?>
                       </div>
-                      <div class="c-post__category color__tips">TIPS</div>
+                      <?php $cat = get_the_category(); ?>
+                      <?php if ($cat[0]): ?>
+                      <div class="c-post__category color__<?php echo $cat[0]->term_id; ?>"><?php echo $cat[0]->name; ?></div>
+                      <?php endif; ?>
                       <div class="c-post__tag">
+                        <?php $tags = get_the_tags(); ?>
+                        <?php foreach ($tags as $tag) :?>
                         <div class="c-tag">
-                          <div class="c-tag__text">#コンサルファーム</div>
+                          <div class="c-tag__text"><?php echo $tag->name; ?></div>
                         </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#共通</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#Pickup</div>
-                        </div>
+                        <?php endforeach; ?>
+
                       </div>
                     </div>
                   </div>
                 </a>
               </div>
-              <div class="swiper-slide p-gallery__slide">
-                <a href="" class="c-post">
-                  <div class="c-post__card">
-                    <div class="c-post__image">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/card-2.png" alt="" />
-                    </div>
-                    <div class="c-post__content">
-                      <div class="c-post__date">2024.07.28</div>
-                      <div class="c-post__title">
-                        人材育成の新潮流：コンサルティングがもたらす効果的なトレー...
-                      </div>
-                      <div class="c-post__category color__tips">TIPS</div>
-                      <div class="c-post__tag">
-                        <div class="c-tag">
-                          <div class="c-tag__text">#コンサルファーム</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#共通</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#Pickup</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide p-gallery__slide">
-                <a href="" class="c-post">
-                  <div class="c-post__card">
-                    <div class="c-post__image">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/card-2.png" alt="" />
-                    </div>
-                    <div class="c-post__content">
-                      <div class="c-post__date">2024.07.28</div>
-                      <div class="c-post__title">
-                        人材育成の新潮流：コンサルティングがもたらす効果的なトレー...
-                      </div>
-                      <div class="c-post__category color__tips">TIPS</div>
-                      <div class="c-post__tag">
-                        <div class="c-tag">
-                          <div class="c-tag__text">#コンサルファーム</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#共通</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#Pickup</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide p-gallery__slide">
-                <a href="" class="c-post">
-                  <div class="c-post__card">
-                    <div class="c-post__image">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/card-2.png" alt="" />
-                    </div>
-                    <div class="c-post__content">
-                      <div class="c-post__date">2024.07.28</div>
-                      <div class="c-post__title">
-                        人材育成の新潮流：コンサルティングがもたらす効果的なトレー...
-                      </div>
-                      <div class="c-post__category color__tips">TIPS</div>
-                      <div class="c-post__tag">
-                        <div class="c-tag">
-                          <div class="c-tag__text">#コンサルファーム</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#共通</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#Pickup</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide p-gallery__slide">
-                <a href="" class="c-post">
-                  <div class="c-post__card">
-                    <div class="c-post__image">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/card-2.png" alt="" />
-                    </div>
-                    <div class="c-post__content">
-                      <div class="c-post__date">2024.07.28</div>
-                      <div class="c-post__title">
-                        人材育成の新潮流：コンサルティングがもたらす効果的なトレー...
-                      </div>
-                      <div class="c-post__category color__tips">TIPS</div>
-                      <div class="c-post__tag">
-                        <div class="c-tag">
-                          <div class="c-tag__text">#コンサルファーム</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#共通</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#Pickup</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide p-gallery__slide">
-                <a href="" class="c-post">
-                  <div class="c-post__card">
-                    <div class="c-post__image">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/card-2.png" alt="" />
-                    </div>
-                    <div class="c-post__content">
-                      <div class="c-post__date">2024.07.28</div>
-                      <div class="c-post__title">
-                        人材育成の新潮流：コンサルティングがもたらす効果的なトレー...
-                      </div>
-                      <div class="c-post__category color__tips">TIPS</div>
-                      <div class="c-post__tag">
-                        <div class="c-tag">
-                          <div class="c-tag__text">#コンサルファーム</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#共通</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#Pickup</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide p-gallery__slide">
-                <a href="" class="c-post">
-                  <div class="c-post__card">
-                    <div class="c-post__image">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/card-2.png" alt="" />
-                    </div>
-                    <div class="c-post__content">
-                      <div class="c-post__date">2024.07.28</div>
-                      <div class="c-post__title">
-                        人材育成の新潮流：コンサルティングがもたらす効果的なトレー...
-                      </div>
-                      <div class="c-post__category color__tips">TIPS</div>
-                      <div class="c-post__tag">
-                        <div class="c-tag">
-                          <div class="c-tag__text">#コンサルファーム</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#共通</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#Pickup</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
+                  <?php endwhile; ?>
+                  <?php endif; ?>
             </div>
 
             <!-- If we need navigation buttons -->
@@ -216,83 +60,44 @@
           <div class="c-title__text">新着情報</div>
         </h2>
         <div class="p-current__cards">
-          <a href="" class="c-post">
+          <?php $args = array(
+            'post_type' => 'post',
+            'posts_per_page' => 3,
+          );
+          $my_query = new WP_query($args);
+          ?>
+          <?php if ($my_query -> have_posts()): ?>
+          <?php while ($my_query -> have_posts()): ?>
+            <?php $my_query ->the_post(); ?>
+            <a href="" class="c-post">
             <div class="c-post__card">
               <div class="c-post__image">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/card-2.png" alt="" />
+                <?php the_post_thumbnail(); ?>
               </div>
               <div class="c-post__content">
-                <div class="c-post__date">2024.07.28</div>
+                <time datetime="<?php the_time('c'); ?>" class="c-post__date"><?php the_time('Y.m.j'); ?></time>
                 <div class="c-post__title">
-                  人材育成の新潮流：コンサルティングがもたらす効果的なトレー...
+                  <?php the_title(); ?>
                 </div>
-                <div class="c-post__category color__tips">TIPS</div>
+                <?php $cat = get_the_category(); ?>
+                <?php if($cat[0]): ?>
+                <div class="c-post__category color__<?php echo $cat[0]->term_id; ?>"><?php echo $cat[0]->name; ?></div>
+                <?php endif; ?>
                 <div class="c-post__tag">
+                  <?php $tags = get_the_tags(); ?>
+                  <?php foreach($tags as $tag): ?>
                   <div class="c-tag">
-                    <div class="c-tag__text">#コンサルファーム</div>
+                    <div class="c-tag__text"><?php echo $tag->name; ?></div>
                   </div>
-                  <div class="c-tag">
-                    <div class="c-tag__text">#共通</div>
-                  </div>
-                  <div class="c-tag">
-                    <div class="c-tag__text">#Pickup</div>
-                  </div>
+                  <?php endforeach; ?>
+ 
                 </div>
               </div>
             </div>
           </a>
-
-          <a href="" class="c-post">
-            <div class="c-post__card">
-              <div class="c-post__image">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/card-2.png" alt="" />
-              </div>
-              <div class="c-post__content">
-                <div class="c-post__date">2024.07.28</div>
-                <div class="c-post__title">
-                  人材育成の新潮流：コンサルティングがもたらす効果的なトレー...
-                </div>
-                <div class="c-post__category color__tips">TIPS</div>
-                <div class="c-post__tag">
-                  <div class="c-tag">
-                    <div class="c-tag__text">#コンサルファーム</div>
-                  </div>
-                  <div class="c-tag">
-                    <div class="c-tag__text">#共通</div>
-                  </div>
-                  <div class="c-tag">
-                    <div class="c-tag__text">#Pickup</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <a href="" class="c-post">
-            <div class="c-post__card">
-              <div class="c-post__image">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/card-2.png" alt="" />
-              </div>
-              <div class="c-post__content">
-                <div class="c-post__date">2024.07.28</div>
-                <div class="c-post__title">
-                  人材育成の新潮流：コンサルティングがもたらす効果的なトレー...
-                </div>
-                <div class="c-post__category color__tips">TIPS</div>
-                <div class="c-post__tag">
-                  <div class="c-tag">
-                    <div class="c-tag__text">#コンサルファーム</div>
-                  </div>
-                  <div class="c-tag">
-                    <div class="c-tag__text">#共通</div>
-                  </div>
-                  <div class="c-tag">
-                    <div class="c-tag__text">#Pickup</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
+            <?php endwhile;?>
+            <?php wp_reset_postdata(); ?>
+            <?php endif; ?>
         </div>
         <div class="p-button__container">
           <button class="c-button-d">
@@ -316,11 +121,11 @@
           <div class="p-pick-up__scroll">
             <div
               id="prevButton"
-              class="c-arrow-circle c-arrow-circle--left"
+              class="c-arrow-circle c-arrow-circle__left"
             ></div>
             <div
               id="nextButton"
-              class="c-arrow-circle c-arrow-circle--right"
+              class="c-arrow-circle c-arrow-circle__right"
             ></div>
           </div>
         </div>
@@ -330,141 +135,48 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
               <!-- Slides -->
+               <?php $args = array(
+                'post_type' =>'post',
+                'posts_per_page' =>5,
+                'meta_key' => 'post_views_count',
+                'order_by' => 'meta_value_num',
+                'order' => 'DESC',
+               );
+               $pick_up_query = new WP_query($args);
+               ?>
+               <?php if($pick_up_query -> have_posts()): ?>
+                <?php while($pick_up_query -> have_posts()): ?>
+                  <?php $pick_up_query -> the_post(); ?>
               <div class="swiper-slide p-pick-up__slider">
                 <a href="" class="c-post">
                   <div class="c-post__card">
                     <div class="c-post__image">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/card-2.png" alt="" />
+                      <?php echo the_post_thumbnail(); ?>
                     </div>
                     <div class="c-post__content">
-                      <div class="c-post__date">2024.07.28</div>
+                      <time datetime="<?php the_time('c'); ?>"  class="c-post__date"><?php the_time('Y.m.j'); ?></time>
                       <div class="c-post__title">
-                        人材育成の新潮流：コンサルティングがもたらす効果的なトレー...
+                        <?php echo the_title(); ?>
                       </div>
-                      <div class="c-post__category color__tips">TIPS</div>
+                      <?php $cat =get_the_category(); ?>
+                      <?php if($cat[0]): ?>
+                      <div class="c-post__category color__<?php echo $cat[0]->term_id; ?>"><?php echo $cat[0]->name; ?></div>
+                      <?php endif; ?>
                       <div class="c-post__tag">
+                        <?php $tags=get_the_tags(); ?>
+                        <?php foreach($tags as $tag): ?>
                         <div class="c-tag">
-                          <div class="c-tag__text">#コンサルファーム</div>
+                          <div class="c-tag__text"><?php echo $tag->name; ?></div>
                         </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#共通</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#Pickup</div>
-                        </div>
+                          <?php endforeach; ?>
                       </div>
                     </div>
                   </div>
                 </a>
               </div>
-              <div class="swiper-slide p-pick-up__slider">
-                <a href="" class="c-post">
-                  <div class="c-post__card">
-                    <div class="c-post__image">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/card-2.png" alt="" />
-                    </div>
-                    <div class="c-post__content">
-                      <div class="c-post__date">2024.07.28</div>
-                      <div class="c-post__title">
-                        人材育成の新潮流：コンサルティングがもたらす効果的なトレー...
-                      </div>
-                      <div class="c-post__category color__tips">TIPS</div>
-                      <div class="c-post__tag">
-                        <div class="c-tag">
-                          <div class="c-tag__text">#コンサルファーム</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#共通</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#Pickup</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide p-pick-up__slider">
-                <a href="" class="c-post">
-                  <div class="c-post__card">
-                    <div class="c-post__image">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/card-2.png" alt="" />
-                    </div>
-                    <div class="c-post__content">
-                      <div class="c-post__date">2024.07.28</div>
-                      <div class="c-post__title">
-                        人材育成の新潮流：コンサルティングがもたらす効果的なトレー...
-                      </div>
-                      <div class="c-post__category color__tips">TIPS</div>
-                      <div class="c-post__tag">
-                        <div class="c-tag">
-                          <div class="c-tag__text">#コンサルファーム</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#共通</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#Pickup</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide p-pick-up__slider">
-                <a href="" class="c-post">
-                  <div class="c-post__card">
-                    <div class="c-post__image">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/card-2.png" alt="" />
-                    </div>
-                    <div class="c-post__content">
-                      <div class="c-post__date">2024.07.28</div>
-                      <div class="c-post__title">
-                        人材育成の新潮流：コンサルティングがもたらす効果的なトレー...
-                      </div>
-                      <div class="c-post__category color__tips">TIPS</div>
-                      <div class="c-post__tag">
-                        <div class="c-tag">
-                          <div class="c-tag__text">#コンサルファーム</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#共通</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#Pickup</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide p-pick-up__slider">
-                <a href="" class="c-post">
-                  <div class="c-post__card">
-                    <div class="c-post__image">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/card-2.png" alt="" />
-                    </div>
-                    <div class="c-post__content">
-                      <div class="c-post__date">2024.07.28</div>
-                      <div class="c-post__title">
-                        人材育成の新潮流：コンサルティングがもたらす効果的なトレー...
-                      </div>
-                      <div class="c-post__category color__tips">TIPS</div>
-                      <div class="c-post__tag">
-                        <div class="c-tag">
-                          <div class="c-tag__text">#コンサルファーム</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#共通</div>
-                        </div>
-                        <div class="c-tag">
-                          <div class="c-tag__text">#Pickup</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
+              <?php endwhile; ?>
+              <?php wp_reset_postdata(); ?>
+              <?php endif; ?>
             </div>
 
             <!-- If we need navigation buttons -->
@@ -531,7 +243,7 @@
                       <img src="<?php echo get_template_directory_uri(); ?>/img/card-2.png" alt="" />
                     </div>
                     <div class="c-post__content">
-                      <div class="c-post__date">2024.07.28</div>
+                      <time datetime="<?php the_time('c'); ?>"  class="c-post__date">2024.07.28</time>
                       <div class="c-post__title">
                         人材育成の新潮流：コンサルティングがもたらす効果的なトレー...
                       </div>
@@ -698,7 +410,8 @@
       </div>
     </section>
 
-    <div class="p-keyword">
+
+    <div id="search" class="p-keyword">
       <div class="p-keyword__inner">
         <div class="p-keyword__head">
           <div class="p-keyword__search">
@@ -707,111 +420,17 @@
           <div class="p-keyword__text">キーワードで絞り込む</div>
         </div>
         <div class="p-keyword__body">
+              <?php $tags = get_terms(array (
+                    'taxonomy' => 'post_tag',
+                    'hide_empty' => false,
+                  )); ?>
+                <?php foreach($tags as $tag): ?>
           <div class="c-tag">
-            <a class="c-tag__text">#コンサルファーム</a>
+            <a class="c-tag__text"><?php echo $tag->name; ?></a>
           </div>
-          <div class="c-tag">
-            <a class="c-tag__text">#クライアント</a>
-          </div>
-          <div class="c-tag">
-            <a class="c-tag__text">#共通</a>
-          </div>
-          <div class="c-tag">
-            <a class="c-tag__text">#戦略</a>
-          </div>
-          <div class="c-tag">
-            <a class="c-tag__text">#IT</a>
-          </div>
-          <div class="c-tag">
-            <a class="c-tag__text">#業務改善</a>
-          </div>
-          <div class="c-tag">
-            <a class="c-tag__text">#HR</a>
-          </div>
-          <div class="c-tag">
-            <a class="c-tag__text">#M&A・事業再生</a>
-          </div>
-          <div class="c-tag">
-            <a class="c-tag__text">#金融・保健</a>
-          </div>
-          <div class="c-tag">
-            <a class="c-tag__text">#メーカー</a>
-          </div>
-          <div class="c-tag">
-            <a class="c-tag__text">#商社</a>
-          </div>
-          <div class="c-tag">
-            <a class="c-tag__text">#不動産・建設・設備</a>
-          </div>
-          <div class="c-tag">
-            <a class="c-tag__text">#サービス</a>
-          </div>
-          <div class="c-tag">
-            <a class="c-tag__text">#物流</a>
-          </div>
-          <div class="c-tag">
-            <a class="c-tag__text">#流通</a>
-          </div>
-          <div class="c-tag">
-            <a class="c-tag__text">#その他</a>
-          </div>
-          <div class="c-tag">
-            <a class="c-tag__text">#広告・マスコミ</a>
-          </div>
-          <div class="c-tag">
-            <a class="c-tag__text">#Pickup</a>
-          </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </div>
 
-    <section class="l-cta">
-      <div class="l-cta__inner">
-        <div class="l-cta__container">
-          <div class="c-cta-button__wrapper">
-            <p class="c-cta-button__call">コンサルタントをお探しの企業様へ</p>
-            <p class="c-cta-button__action">プロジェクトの相談をする</p>
-          </div>
-          <div class="c-cta-button__wrapper">
-            <p class="c-cta-button__call c-cta-button__call--secondary">
-              コンサルタントの方へ
-            </p>
-            <p class="c-cta-button__action c-cta-button__action--secondary">
-              案件の紹介を受ける
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="l-footer">
-      <div class="l-footer__inner">
-        <div class="l-footer__body">
-          <div class="l-footer__logo">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/footer-mark-white.png" alt="" />
-          </div>
-          <nav class="l-footer__lists">
-            <a href="" class="l-footer__item">新着情報</a>
-            <a href="" class="l-footer__item">DayMagaについて</a>
-            <a href="" class="l-footer__item">TIPS</a>
-            <a href="" class="l-footer__item">運営会社</a>
-            <a href="" class="l-footer__item">インタビュー</a>
-            <a href="" class="l-footer__item">サイト利用規約</a>
-            <a href="" class="l-footer__item">ニュース</a>
-          </nav>
-        </div>
-        <div class="l-copyright__wrapper">
-          <small class="l-copyright__text">&copy;2024 Daytra Consul</small>
-        </div>
-        <div class="l-disclaimer__text">
-          このサイトはCrown
-          Cat株式会社様のご協力のもと作成したコーディング用の練習課題です。実在の人物・団体とは関係ありません。
-        </div>
-      </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <?php wp_footer(); ?>
-  </body>
-</html>
+<?php get_footer(); ?>
