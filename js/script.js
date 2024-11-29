@@ -108,6 +108,12 @@ $(".p-category-posts__text").on("click", function (event) {
   $(".p-category-posts__body-inner").css("background-color", color);
 });
 
+$(".p-category-posts__text").on("click", function (event){
+  event.preventDefault();
+  $(".p-category-posts__text").removeClass('is-active');
+  $(this).toggleClass("is-active");
+});
+
 //  headerスクロールで切り替わる
 $(window).scroll(function () {
   if ($(window).scrollTop() > 0) {
