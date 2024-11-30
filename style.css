@@ -1213,21 +1213,46 @@ a.c-tag__text:hover {
   color: #fff;
 }
 
+
 .p-category-posts__body-inner {
   background: #629de2;
   border-radius: 16px 0px 16px 16px;
   padding: 12px 12px;
 }
 
+.body-color__2{
+  background:#135097;
+}
+
+.body-color__3{
+  background:#42a0ad;
+}
+
+.body-color__4{
+  background:#816dfa;
+}
+
+.body-color__5{
+  background:#c88dec;
+}
+
 .p-category-posts__body-cards {
   display: grid;
-  grid-template-columns: minmax(0,1fr);;
+  grid-template-columns: minmax(0,1fr);
   gap: 14px;
 }
 
 .p-category-post__button {
   padding-top: 20px;
   text-align: center;
+}
+
+.js-category-post{
+  display: none;
+}
+
+.js-category-post.is-active{
+display: block;
 }
 
 .p-404__inner {
@@ -1608,6 +1633,7 @@ h4.wp-block-heading::before {
   gap: 8px;
   padding: 24px 16px;
 }
+
 
 @media screen and (min-width: 750px) {
   .l-header-content {

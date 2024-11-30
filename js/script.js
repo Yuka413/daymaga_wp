@@ -101,7 +101,7 @@ pickUp_swiper.on("reachEnd", buttonDisabled);
 // 初期状態でボタンの状態を更新
 buttonDisabled();
 
-// タグクリックでテキストの色を取得し、背景色を変える
+// 「全ての記事」セクションにおいて、タブクリックでテキストの色を取得し、背景色を変える
 $(".p-category-posts__text").on("click", function (event) {
   event.preventDefault();
   const color = $(this).css("background-color");
@@ -112,6 +112,21 @@ $(".p-category-posts__text").on("click", function (event){
   event.preventDefault();
   $(".p-category-posts__text").removeClass('is-active');
   $(this).toggleClass("is-active");
+});
+
+$(document).ready(function(){
+  $('.js-category-post').addClass('is-active');
+
+$('.p-category-posts__text').on("click", function (event){
+  event.preventDefault();
+  const slug =$(this).data('slug');
+ if(slug === "all"){
+  $('.js-category-post').addClass('is-active');
+ } else {
+  $(`.js-category-post[id= "${slug}"]`).addClass('is-active');
+  $(`.js-category-post[id != "${slug}"]`).removeClass('is-active');
+ }
+});
 });
 
 //  headerスクロールで切り替わる
