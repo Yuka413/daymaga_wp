@@ -21,16 +21,22 @@
       <div class="l-footer__inner">
         <div class="l-footer__body">
           <div class="l-footer__logo">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/footer-mark-white.png" alt="" />
+            <a href="<?php echo home_url('/'); ?>" class="l-footer__logo-link">
+             <img src="<?php echo get_template_directory_uri(); ?>/img/footer-mark-white.png" alt="" />
+            </a>
           </div>
           <nav class="l-footer__lists">
-            <a href="" class="l-footer__item">新着情報</a>
-            <a href="" class="l-footer__item">DayMagaについて</a>
-            <a href="" class="l-footer__item">TIPS</a>
-            <a href="" class="l-footer__item">運営会社</a>
-            <a href="" class="l-footer__item">インタビュー</a>
-            <a href="" class="l-footer__item">サイト利用規約</a>
-            <a href="" class="l-footer__item">ニュース</a>
+            <li class="l-footer__list-category">
+              <?php $categories = get_categories(); ?>
+              <?php foreach($categories as $category): ?>
+                <a href="<?php echo get_category_link($category->cat_ID); ?>" class="l-footer__item"><?php echo $category->name; ?></a>
+                <?php endforeach; ?>
+            </li>
+            <li class="l-footer__list-company">
+              <a href="" class="l-footer__item">DayMagaについて</a>
+              <a href="" class="l-footer__item">運営会社</a>
+              <a href="" class="l-footer__item">サイト利用規約</a>
+            </li>
           </nav>
         </div>
         <div class="l-copyright__wrapper">

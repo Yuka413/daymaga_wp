@@ -4,7 +4,7 @@
       <div class="p-keyword__search">
         <img src="<?php echo get_template_directory_uri(); ?>/img/search.png" alt="" />
       </div>
-      <div class="p-keyword__text">キーワードで絞り込む</div>
+      <div id=keyword class="p-keyword__text">キーワードで絞り込む</div>
     </div>
     <div class="p-keyword__body">
           <?php $tags = get_terms(array (
@@ -13,7 +13,7 @@
               )); ?>
             <?php foreach($tags as $tag): ?>
       <div class="c-tag">
-        <a class="c-tag__text"><?php echo $tag->name; ?></a>
+        <a href="<?php echo get_tag_link($tag->term_id); ?>" class="c-tag__text"><?php echo $tag->name; ?></a>
       </div>
       <?php endforeach; ?>
     </div>

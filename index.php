@@ -70,6 +70,7 @@
       <?php $args = array(
         'post_type' => 'post',
         'posts_per_page' => 3,
+        'category_name' => 'current',
       );
       $my_query = new WP_query($args);
       ?>
@@ -108,7 +109,7 @@
     </div>
     <div class="p-button__container">
       <button class="c-button-d">
-        <a href="" class="c-button-d__link"> もっと見る </a>
+        <a href="<?php echo get_category_link($cat[0]); ?>" class="c-button-d__link"> もっと見る </a>
       </button>
     </div>
   </div>
@@ -148,7 +149,7 @@
       <div class="p-category-posts__order">
         <a class="p-category-posts__order-text is-active">新着順</a>
         <span class="p-category-posts__order-line"></span>
-        <a class="p-category-posts__order-text no-active">人気順</a>
+        <a class="p-category-posts__order-text">人気順</a>
       </div>
 
 
@@ -194,19 +195,27 @@
         <?php endif; ?>
 
             </div>
-          </div>
-          <div class="c-post__prepare">
-            <div class="c-post__prepare-inner">
-              <p class="c-post__prepare-text">投稿の準備中です。</p>
+            <?php 
+                $tag = get_queried_object();
+                $args = array (
+                'post_type' => 'post',
+                );
+                $all_query = new WP_query($args); ?>
+                <?php if(!$all_query->have_posts()): ?>
+            <div class="c-post__prepare">
+                <div class="c-post__prepare-inner">
+                    <p class="c-post__prepare-text">投稿の準備中です。</p>
+                </div>
             </div>
-          </div>
+            <?php endif; ?>
+            <?php wp_reset_postdata(); ?>
         </div>
       </div>
     </div>
-
+                </div>
     <div class="p-category-post__button">
       <button class="c-button-d">
-        <a href="" class="c-button-d__link">もっと見る </a>
+        <a href="<?php echo get_post_type_archive_link('/'); ?>all" class="c-button-d__link">もっと見る </a>
       </button>
     </div>
   </div>

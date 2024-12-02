@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
     <title>DayMaga</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,9 +34,19 @@
         <div class="l-header__body">
           <div class="l-header__content l-header-content">
             <p class="l-header-content__main">ビジネスの未来を切り拓く。</p>
+            <?php if(is_front_page()): ?>
             <h1 class="l-header-content__logo">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="DayMaga" />
+              <a href="<?php echo home_url(''); ?>" class="l-header__logo-link">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="DayMaga" />
+              </a>
             </h1>
+            <?php else: ?>
+              <div class="l-header-content__logo">
+              <a href="<?php echo home_url(''); ?>" class="l-header__logo-link">
+               <img href="<?php echo home_url(''); ?>" src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="DayMaga" />
+              </a>
+            </div>
+            <?php endif; ?>
             <p class="l-header-content__sub">
               コンサルティングの専門情報メディア
             </p>
@@ -53,16 +64,16 @@
               <span class="l-drawer-icon__bar"></span>
               <span class="l-drawer-icon__bar"></span>
             </button>
-            <a href="#search" class="l-header-nav__search"
+            <a href="#keyword" class="l-header-nav__search"
               ><img src="<?php echo get_template_directory_uri(); ?>/img/search.png" alt=""
             /></a>
           </div>
           <nav class="l-header__lists">
             <div class="l-header__lists-heading">
-              <a href="#current" class="l-header-list">新着情報</a>
-              <a href="#tips" class="l-header-list">TIPS</a>
-              <a href="#interview" class="l-header-list">インタビュー</a>
-              <a href="#news" class="l-header-list">ニュース</a>
+            <?php $categories = get_categories(); ?>
+              <?php foreach($categories as $category): ?>
+                <a href="<?php echo get_category_link($category->cat_ID); ?>" class="l-footer__item"><?php echo $category->name; ?></a>
+                <?php endforeach; ?>
             </div>
             <div class="l-header__lists-button">
               <a href="" class="l-header-list l-btn">
@@ -78,7 +89,7 @@
                 </div>
               </a>
             </div>
-            <a href="#search" class="l-header-list__search"
+            <a href="#keyword" class="l-header-list__search"
               ><img src="<?php echo get_template_directory_uri(); ?>/img/search.png" alt=""
             /></a>
           </nav>
@@ -92,11 +103,12 @@
               <span class="l-drawer-content__bar-close"></span>
             </button>
           <nav class="l-drawer-content__menu">
-            <a href="#current" class="l-drawer-content__link js-drawer-click">新着情報</a>
-            <a href="#tips" class="l-drawer-content__link js-drawer-click">TIPS</a>
-            <a href="#interview" class="l-drawer-content__link js-drawer-click">インタビュー</a>
-            <a href="#news" class="l-drawer-content__link js-drawer-click">ニュース</a>
-            <a href="#search" class="l-drawer-content__search"
+          <?php $categories = get_categories(); ?>
+              <?php foreach($categories as $category): ?>
+                <a href="<?php echo get_category_link($category->cat_ID); ?>" class="l-footer__item"><?php echo $category->name; ?></a>
+                <?php endforeach; ?>
+
+            <a href="#keyword" class="l-drawer-content__search"
               ><img src="<?php echo get_template_directory_uri(); ?>/img/search.png" alt=""
             /></a>
           </nav>

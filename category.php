@@ -19,9 +19,9 @@
       </div>
       <div class="p-category-posts__wrapper--secondary">
       <div class="p-category-posts__order">
-        <a class="p-category-posts__order-text is-active">新着順</a>
+        <a href="" class="p-category-posts__order-text is-active">新着順</a>
         <span class="p-category-posts__order-line"></span>
-        <a class="p-category-posts__order-text no-active">人気順</a>
+        <a href="" class="p-category-posts__order-text">人気順</a>
       </div>
 
 
@@ -70,21 +70,26 @@
         <?php endif; ?>
 
             </div>
-          </div>
-          <div class="c-post__prepare">
-            <div class="c-post__prepare-inner">
-              <p class="c-post__prepare-text">投稿の準備中です。</p>
+            
+            <?php 
+                $cat_id = get_queried_object_id();
+                $args = array (
+                'post_type' => 'post',
+                'cat' => $cat_id,
+                );
+                $all_query = new WP_query($args); ?>
+                <?php if(!$all_query->have_posts()): ?>
+            <div class="c-post__prepare">
+                <div class="c-post__prepare-inner">
+                    <p class="c-post__prepare-text">投稿の準備中です。</p>
+                </div>
             </div>
-          </div>
+            <?php endif; ?>
+            <?php wp_reset_postdata(); ?>
         </div>
       </div>
     </div>
 
-    <div class="p-category-post__button">
-      <button class="c-button-d">
-        <a href="" class="c-button-d__link">もっと見る </a>
-      </button>
-    </div>
   </div>
 </section>
 

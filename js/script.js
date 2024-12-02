@@ -36,6 +36,7 @@ const gallery_swiper = new Swiper(".p-gallery__swiper", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+
 });
 
 // おすすめ記事のスワイパー
@@ -144,27 +145,9 @@ $(window).scroll(function () {
     $(".l-header__menu").removeClass("l-header__menu--scroll");
   }
 });
-// window.addEventListener('scroll', () =>{
-//     const scrollPosition = window.scrollY;
 
-//     const headerContent = document.querySelector('l-header-content');
-//     if (headerContent) {
-//         if (scrollPosition > 0) {
-//             headerContent.style.display = 'none';
-//         } else {
-//             headerContent.style.display = '';
-//         }
-//     }
-
-//     const removeClasses = ['l-header-content__scroll-wrapper', 'l-header__menu--scroll'];
-//     removeClasses.forEach(className => {
-//         const elements = document.querySelectorAll(`${className}`);
-//         elements.forEach(element => {
-//             if (scrollPosition > 0) {
-//                 element.classList.remove('js-header-scroll');
-//             } else {
-//                 element.classList.add('js-header-scroll');
-//             }
-//         });
-//     });
-// });
+// 新着順、人気順クリックで色が変わる
+$('.p-category-posts__order-text').on("click", function(event) {
+  event.preventDefault();
+  $('.p-category-posts__order-text').toggleClass('is-active');
+})
