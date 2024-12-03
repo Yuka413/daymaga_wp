@@ -53,7 +53,9 @@
           </div>
           <div class="l-header-content__scroll-wrapper js-header-scroll">
             <img src="<?php echo get_template_directory_uri(); ?>/img/symbol-color.png" alt="" class="l-header__content--scroll-symbol">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="" class="l-header__content--scroll-logo">
+            <a href="<?php echo home_url(''); ?>" class="l-header__logo-link">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="" class="l-header__content--scroll-logo">
+            </a>
           </div>
           <div class="l-header__menu">
             <button

@@ -1,7 +1,7 @@
 <section class="p-pick-up <?php echo is_single()? 'p-pick-up__single': ''; ?>">
   <div class="p-pick-up__inner">
     <div class="p-pick-up__head">
-      <h2 class="c-title p-pick-up__title">
+      <div class="c-title p-pick-up__title">
         <div class="c-title__image">
         <?php if (is_single()): ?>
         <img src="<?php echo get_template_directory_uri(); ?>/img/symbol-color.png" alt="" />
@@ -12,7 +12,7 @@
         <div class="c-title__text <?php echo is_front_page()? 'c-title__text--secondary' : '';?>">
           おすすめ記事
         </div>
-      </h2>
+      </div>
       <div class="p-pick-up__scroll">
         <?php if(is_single()): ?>
             <div

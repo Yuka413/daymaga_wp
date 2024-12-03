@@ -366,7 +366,7 @@ body.js-menuOpen {
   color: #fff;
   font-weight: 700;
   line-height: 1.2;
-  transform: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .l-header-list:hover {
@@ -423,7 +423,7 @@ body.js-menuOpen {
 }
 
 .l-header-list__search {
-  transform: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .l-header-list__search:hover {
@@ -578,11 +578,9 @@ a.c-post__category {
   transition: opacity 0.3s;
 }
 
-.l-header__body
-{
+.l-header__body {
   transition: 0.5s ease;
 }
-
 
 a.c-post__category:hover {
   opacity: 0.7;
@@ -1089,12 +1087,12 @@ a.c-tag__text:hover {
   overflow: visible;
 }
 
-.p-gallery__swiper.swiper-slide {
+.p-gallery__slide.swiper-slide {
   transition: transform 0.7s ease;
 }
 
-.p-gallery__swiper.swiper-slide-active {
-  transform: translateY(-8px) !important; /* 上にずらす */
+.p-gallery__slide.swiper-slide-active {
+  transform: translateY(-8px); /* 上にずらす */
 }
 
 .swiper-scrollbar-drag {
@@ -1290,9 +1288,15 @@ a.c-tag__text:hover {
   gap: 14px;
 }
 
-.p-category-post__button {
+.c-post__card {
   padding-top: 20px;
-  text-align: center;
+}
+
+
+.p-category-post__button{
+  padding-top: 30px;
+  display: flex;
+  justify-content: right;
 }
 
 .js-category-post {
@@ -1895,7 +1899,7 @@ h4.wp-block-heading::before {
     margin-left: auto;
     margin-right: auto;
     max-width: 1034px;
-    text-align: right;
+    justify-content: right;
   }
 
   .p-404__body {
@@ -2002,7 +2006,7 @@ h4.wp-block-heading::before {
   }
 
   .l-header__lists-heading {
-    gap: 30px;
+    gap: 25px;
   }
 
   .p-current__cards {
@@ -2021,8 +2025,21 @@ h4.wp-block-heading::before {
     height: fit-content;
     padding: 20px 68px;
   }
+}
 
+@media screen and (min-width: 1400px) {
   .l-header__lists-heading {
     gap: 48px;
   }
+}
+
+
+@media screen and (min-width: 1500px) {
+.p-gallery__prev{
+  left: 31vw;
+}
+
+.p-gallery__next {
+  right: 31vw;
+}
 }

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class="p-gallery">
+<div class="p-gallery">
   <div class="p-gallery__inner">
     <div class="p-gallery__slide">
       <!-- Slider main container -->
@@ -56,16 +56,16 @@
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <section id="current" class="p-current">
   <div class="p-current__inner">
-    <h2 class="c-title p-current__title">
+    <div class="c-title p-current__title">
       <div class="c-title__image">
         <img src="<?php echo get_template_directory_uri(); ?>/img/symbol-color.png" alt="" />
       </div>
-      <div class="c-title__text">新着情報</div>
-    </h2>
+      <h2 class="c-title__text">新着情報</h2>
+    </div>
     <div class="p-current__cards">
       <?php $args = array(
         'post_type' => 'post',
@@ -108,9 +108,9 @@
         <?php endif; ?>
     </div>
     <div class="p-button__container">
-      <button class="c-button-d">
+      <div class="c-button-d">
         <a href="<?php echo get_category_link($cat[0]); ?>" class="c-button-d__link"> もっと見る </a>
-      </button>
+      </div>
     </div>
   </div>
 </section>
@@ -121,12 +121,12 @@
 <section class="p-category-posts">
   <div class="p-category-posts__inner">
     <div class="p-category-posts_title">
-      <h2 class="c-title">
+      <div class="c-title">
         <div class="c-title__image">
           <img src="<?php echo get_template_directory_uri(); ?>/img/symbol-color.png" alt="" />
         </div>
-        <div class="c-title__text">すべての記事</div>
-      </h2>
+        <h2 class="c-title__text">すべての記事</h2>
+      </div>
     </div>
     <div class="p-category-posts__wrapper">
       <div class="p-category-posts__tags box-tags">
@@ -214,12 +214,12 @@
     </div>
                 </div>
     <div class="p-category-post__button">
-      <button class="c-button-d">
-        <a href="<?php echo get_post_type_archive_link('/'); ?>all" class="c-button-d__link">もっと見る </a>
-      </button>
+        <div class="c-button-d">
+          <a href="<?php echo get_post_type_archive_link('/'); ?>all" class="c-button-d__link">もっと見る </a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
 <?php get_template_part('template-parts/keyword') ;?>

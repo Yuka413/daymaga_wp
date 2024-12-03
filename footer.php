@@ -1,21 +1,21 @@
-<section class="l-cta">
+<div class="l-cta">
       <div class="l-cta__inner">
         <div class="l-cta__container">
-          <div class="c-cta-button__wrapper">
+          <a href="#" class="c-cta-button__wrapper">
             <p class="c-cta-button__call">コンサルタントをお探しの企業様へ</p>
             <p class="c-cta-button__action">プロジェクトの相談をする</p>
-          </div>
-          <div class="c-cta-button__wrapper">
+          </a>
+          <a href="#" class="c-cta-button__wrapper">
             <p class="c-cta-button__call c-cta-button__call--secondary">
               コンサルタントの方へ
             </p>
             <p class="c-cta-button__action c-cta-button__action--secondary">
               案件の紹介を受ける
             </p>
-          </div>
+          </a>
         </div>
       </div>
-    </section>
+    </div>
 
     <footer class="l-footer">
       <div class="l-footer__inner">

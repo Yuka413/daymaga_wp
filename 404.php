@@ -14,11 +14,11 @@
           <div class="p-404__sub-text">
             トップページに戻ってコンテンツお探しください。
           </div>
-          <button class="c-button-l">
+          <div class="c-button-l">
             <a href="<?php echo home_url('/'); ?>" class="c-button-l__link">
               <p class="c-button-l__text">TOPページに戻る</p>
             </a>
-          </button>
+          </div>
         </div>
         <?php echo get_template_part('template-parts/keyword'); ?>
  <?php get_footer(); ?>
