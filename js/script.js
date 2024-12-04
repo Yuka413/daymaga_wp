@@ -102,22 +102,28 @@ pickUp_swiper.on("reachEnd", buttonDisabled);
 // 初期状態でボタンの状態を更新
 buttonDisabled();
 
-// 「全ての記事」セクションにおいて、タブクリックでテキストの色を取得し、背景色を変える
-$(".p-category-posts__text").on("click", function (event) {
-  event.preventDefault();
-  const color = $(this).css("background-color");
-  $(".p-category-posts__body-inner").css("background-color", color);
-});
+// 「すべての記事」セクションにおいて、タブクリックでbodyの背景色を変える
+$(document).ready(function(){
+  const colors =['#629de2', '#135097', '#42a0ad', '#816dfa', '#c88dec' ];
 
+  $('.p-category-posts__text').each(function (index) {
+    $(this).on('click', function(){
+      const color =colors[index] || 'gray';
+      $('.p-category-posts__body-inner').css('background-color', color);
+    })
+  })
+})
+
+// クリックしたタブの背景が色づくようにする
 $(".p-category-posts__text").on("click", function (event){
   event.preventDefault();
   $(".p-category-posts__text").removeClass('is-active');
   $(this).toggleClass("is-active");
 });
 
+// すべての記事セクションで、タブをクリックすると、タブに設定したdata-slugとjs-category-postクラスのid(投稿のスラッグ)が一致するものだけ投稿を表示する
 $(document).ready(function(){
   $('.js-category-post').addClass('is-active');
-
 $('.p-category-posts__text').on("click", function (event){
   event.preventDefault();
   const slug =$(this).data('slug');

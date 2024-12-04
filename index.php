@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 
+<!-- メインビジュアルここから -->
 <div class="p-gallery">
   <div class="p-gallery__inner">
     <div class="p-gallery__slide">
@@ -57,7 +58,9 @@
     </div>
   </div>
 </div>
+<!-- メインビイジュアルここまで -->
 
+<!-- 新着情報ここから -->
 <section id="current" class="p-current">
   <div class="p-current__inner">
     <div class="c-title p-current__title">
@@ -114,10 +117,13 @@
     </div>
   </div>
 </section>
+<!-- 新着情報ここまで -->
 
-<!-- おすすめ記事 -->
+<!-- おすすめ記事ここから -->
 <?php get_template_part('template-parts/pick-up'); ?>
+<!-- おすすめ記事ここまで -->
 
+<!-- すべての記事ここから -->
 <section class="p-category-posts">
   <div class="p-category-posts__inner">
     <div class="p-category-posts_title">
@@ -212,7 +218,7 @@
         </div>
       </div>
     </div>
-                </div>
+  </div>
     <div class="p-category-post__button">
         <div class="c-button-d">
           <a href="<?php echo get_post_type_archive_link('/'); ?>all" class="c-button-d__link">もっと見る </a>
@@ -220,8 +226,10 @@
       </div>
     </div>
   </section>
+  <!-- すべての記事ここまで -->
 
-
+<!-- キーワードここから -->
 <?php get_template_part('template-parts/keyword') ;?>
+<!-- キーワードここまで -->
 
 <?php get_footer(); ?>
