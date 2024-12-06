@@ -34,29 +34,21 @@
       <div class="l-header__inner">
         <div class="l-header__body">
           <div class="l-header__content l-header-content">
-            <p class="l-header-content__main">ビジネスの未来を切り拓く。</p>
             <?php if(is_front_page()): ?>
             <h1 class="l-header-content__logo">
               <a href="<?php echo home_url(''); ?>" class="l-header__logo-link">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="DayMaga" />
+                <img class="js-initial-logo" src="<?php echo get_template_directory_uri(); ?>/img/logo-all.png" alt="DayMaga" />
+                <img class="js-scroll-logo" src="<?php echo get_template_directory_uri(); ?>/img/logo-scroll.png" alt="DayMaga" />
               </a>
             </h1>
             <?php else: ?>
               <div class="l-header-content__logo">
               <a href="<?php echo home_url(''); ?>" class="l-header__logo-link">
-               <img href="<?php echo home_url(''); ?>" src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="DayMaga" />
+              <img class="js-initial-logo" src="<?php echo get_template_directory_uri(); ?>/img/logo-all.png" alt="DayMaga" />
+                <img class="js-scroll-logo" src="<?php echo get_template_directory_uri(); ?>/img/logo-scroll.png" alt="DayMaga" />
               </a>
             </div>
             <?php endif; ?>
-            <p class="l-header-content__sub">
-              コンサルティングの専門情報メディア
-            </p>
-          </div>
-          <div class="l-header-content__scroll-wrapper js-header-scroll">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/symbol-color.png" alt="" class="l-header__content--scroll-symbol">
-            <a href="<?php echo home_url(''); ?>" class="l-header__logo-link">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="" class="l-header__content--scroll-logo">
-            </a>
           </div>
           <div class="l-header__menu">
             <button
@@ -75,7 +67,7 @@
             <div class="l-header__lists-heading">
             <?php $categories = get_categories(); ?>
               <?php foreach($categories as $category): ?>
-                <a href="<?php echo get_category_link($category->cat_ID); ?>" class="l-footer__item"><?php echo $category->name; ?></a>
+                <a href="<?php echo get_category_link($category->cat_ID); ?>" class="l-header__item"><?php echo $category->name; ?></a>
                 <?php endforeach; ?>
             </div>
             <div class="l-header__lists-button">
@@ -108,7 +100,7 @@
           <nav class="l-drawer-content__menu">
           <?php $categories = get_categories(); ?>
               <?php foreach($categories as $category): ?>
-                <a href="<?php echo get_category_link($category->cat_ID); ?>" class="l-footer__item"><?php echo $category->name; ?></a>
+                <a href="<?php echo get_category_link($category->cat_ID); ?>" class="l-header__item"><?php echo $category->name; ?></a>
                 <?php endforeach; ?>
 
             <a href="#keyword" class="l-drawer-content__search"

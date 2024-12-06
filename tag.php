@@ -7,7 +7,7 @@
         <div class="c-title__image">
           <img src="<?php echo get_template_directory_uri(); ?>/img/symbol-color.png" alt="" />
         </div>
-        <div class="c-title__text"><?php the_archive_title(); ?>の記事</div>
+        <div class="c-title__text"><?php the_archive_title(); ?>の検索結果</div>
       </h2>
     </div>
     <div class="p-category-posts__wrapper">

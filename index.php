@@ -20,25 +20,25 @@
               <?php $gallery_query -> the_post(); ?>
               <div class="swiper-slide p-gallery__slide">
             <a href="<?php the_permalink(); ?>" class="c-post">
-              <div class="c-post__card">
+              <div class="c-post__card p-gallery-post__card">
                 <div class="c-post__image">
                   <?php echo the_post_thumbnail(); ?>
                 </div>
-                <div class="c-post__content">
-                  <time datetime="<?php the_time('c'); ?>" class="c-post__date"><?php the_time("Y.m.j"); ?></datetime=>
+                <div class="c-post__content p-gallery-post__content">
+                  <time datetime="<?php the_time('c'); ?>" class="c-post__date p-gallery-post__date"><?php the_time("Y.m.j"); ?></datetime=>
                 </div>
-                  <div class="c-post__title">
+                  <div class="c-post__title p-gallery-post__title">
                     <?php echo the_title(); ?>
                   </div>
                   <?php $cat = get_the_category(); ?>
                   <?php if ($cat[0]): ?>
-                  <div class="c-post__category color__<?php echo $cat[0]->term_id; ?>"><?php echo $cat[0]->name; ?></div>
+                  <div class="c-post__category p-gallery-post__category color__<?php echo $cat[0]->term_id; ?>"><?php echo $cat[0]->name; ?></div>
                   <?php endif; ?>
-                  <div class="c-post__tag">
+                  <div class="c-post__tag p-gallery-post__tag">
                     <?php $tags = get_the_tags(); ?>
                     <?php foreach ($tags as $tag) :?>
                     <div class="c-tag">
-                      <div class="c-tag__text"><?php echo $tag->name; ?></div>
+                      <div class="c-tag__text p-gallery-tag__text"><?php echo $tag->name; ?></div>
                     </div>
                     <?php endforeach; ?>
                   </div>
@@ -80,7 +80,7 @@
       <?php while ($my_query -> have_posts()): ?>
         <?php $my_query ->the_post(); ?>
         <a href="<?php the_permalink(); ?>" class="c-post">
-        <div class="c-post__card">
+        <div class="c-post__card ">
           <div class="c-post__image">
             <?php the_post_thumbnail(); ?>
           </div>

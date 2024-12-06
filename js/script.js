@@ -23,12 +23,12 @@ const gallery_swiper = new Swiper(".p-gallery__swiper", {
     750: {
       loop: true,
       slidesPerView: 2.3,
-      spaceBetween: 64,
+      spaceBetween: 67,
     },
     1500: {
       loop: true,
       slidesPerView: 3,
-      spaceBetween: 64,
+      spaceBetween: 67,
     },
   },
 
@@ -137,20 +137,25 @@ $('.p-category-posts__text').on("click", function (event){
 });
 
 //  headerスクロールで切り替わる
-$(window).scroll(function () {
+$(window).on('scroll', function () {
+  const scrollY = $(this).scrollTop();
   if ($(window).scrollTop() > 0) {
-    $(".l-header__body").addClass("l-header__scroll");
-    $(".l-header__content").addClass("js-header-scroll");
-    $(".l-header-content__scroll-wrapper").removeClass("js-header-scroll");
-    $(".l-header__menu").addClass("l-header__menu--scroll");
-
+    $(".l-header__menu").addClass("is-scroll--sp");
+    $(".l-header__inner").addClass("is-scroll");
+    $(".js-scroll-logo").css('opacity', '1');
+    $(".js-scroll-logo").css('transition', '0.5s');
+    $(".js-initial-logo").css('opacity', '0');
   } else {
-    $(".l-header__body").removeClass("l-header__scroll");
-    $(".l-header__content").removeClass("js-header-scroll");
-    $(".l-header-content__scroll-wrapper").addClass("js-header-scroll");
-    $(".l-header__menu").removeClass("l-header__menu--scroll");
+    $(".l-header__menu").removeClass("is-scroll--sp");
+    $(".l-header__inner").removeClass("is-scroll");
+    $(".js-scroll-logo").css('opacity', '0');
+    $(".js-scroll-logo").css('transition', '0.5s');
+    $(".js-initial-logo").css('opacity', '1');
+
   }
 });
+
+
 
 // 新着順、人気順クリックで色が変わる
 $('.p-category-posts__order-text').on("click", function(event) {
