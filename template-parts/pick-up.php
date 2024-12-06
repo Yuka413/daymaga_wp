@@ -54,7 +54,7 @@
             <?php while($pick_up_query -> have_posts()): ?>
               <?php $pick_up_query -> the_post(); ?>
           <div class="swiper-slide p-pick-up__slider">
-            <a href="" class="c-post">
+            <a href="<?php the_permalink(); ?>" class="c-post">
               <div class="c-post__card p-pick-up__card">
                 <div class="c-post__image">
                   <?php echo the_post_thumbnail(); ?>

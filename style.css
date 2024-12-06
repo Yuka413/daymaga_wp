@@ -832,7 +832,7 @@ a.c-tag__text:hover {
   position: absolute;
   text-align: center;
   text-align: center;
-  top: -22px;
+  top: -21px;
   width: -moz-fit-content;
   width: fit-content;
   z-index: 1;
@@ -863,7 +863,7 @@ a.c-tag__text:hover {
   font-weight: 600;
   margin-left: 8px;
   position: absolute;
-  top: 14px;
+  top: 12px;
 }
 
 .c-cta-button__call--secondary {
@@ -1292,8 +1292,7 @@ a.c-tag__text:hover {
   padding-top: 20px;
 }
 
-
-.p-category-post__button{
+.p-category-post__button {
   padding-top: 30px;
   display: flex;
   justify-content: right;
@@ -1860,8 +1859,7 @@ h4.wp-block-heading::before {
     writing-mode: horizontal-tb;
   }
 
-  .p-category-posts__text:click{
-    
+  .p-category-posts__text:click {
   }
 
   .p-category-posts__all {
@@ -2037,13 +2035,12 @@ h4.wp-block-heading::before {
   }
 }
 
-
 @media screen and (min-width: 1500px) {
-.p-gallery__prev{
-  left: 31vw;
-}
+  .p-gallery__prev {
+    left: 31vw;
+  }
 
-.p-gallery__next {
-  right: 31vw;
-}
+  .p-gallery__next {
+    right: 31vw;
+  }
 }

@@ -111,4 +111,6 @@
         </div>
       </div>
 </section>
+
+<?php get_template_part('template-parts/keyword'); ?>
 <?php get_footer(); ?>

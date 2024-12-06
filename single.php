@@ -30,7 +30,7 @@
             <?php $tags = wp_get_post_terms($ID);?>
             <?php foreach($tags as $tag) :?>
               <div class="c-tag">
-                <a  href="" class="c-tag__text"><?php echo $tag->name; ?></a>
+                <a  href="<?php echo get_tag_link($tag->term_id) ;?>" class="c-tag__text"><?php echo $tag->name; ?></a>
               </div>
               <?php endforeach; ?>
             </div>
