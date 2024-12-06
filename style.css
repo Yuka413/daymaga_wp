@@ -203,7 +203,7 @@ body.js-menuOpen {
   border-radius: 0px 0px 0px 28px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 30px;
   justify-content: space-between;
   padding: 28px 24px;
 }
@@ -536,9 +536,8 @@ body.js-menuOpen {
   box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.03),
     0px 5px 30px 0px rgba(20, 43, 78, 0.2);
   display: block;
-  /* flex: 1; */
   overflow: hidden;
-  padding: 16px 16px;
+  padding: 15px 13px;
   transition: opacity 0.3s ease;
 }
 
@@ -548,6 +547,10 @@ body.js-menuOpen {
 
 .c-post__inner {
   padding-inline: 44px;
+}
+
+.c-post__content{
+  padding-top: 6px;
 }
 
 .c-post__date {
@@ -593,8 +596,8 @@ a.c-post__category:hover {
   font-size: 13px;
   font-weight: 400;
   line-height: 1.6;
-  margin-top: 8px;
-  padding: 2px 14px;
+  margin-top: 5px;
+  padding: 3px 15px;
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -1010,7 +1013,7 @@ a.c-tag__text:hover {
 }
 
 .p-current {
-  padding-block: 40px;
+  padding-block: 39px;
 }
 
 .p-current__inner {
@@ -1286,10 +1289,6 @@ a.c-tag__text:hover {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 14px;
-}
-
-.c-post__card {
-  padding-top: 20px;
 }
 
 .p-category-post__button {
