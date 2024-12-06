@@ -26,6 +26,7 @@
                 </div>
                 <div class="c-post__content">
                   <time datetime="<?php the_time('c'); ?>" class="c-post__date"><?php the_time("Y.m.j"); ?></datetime=>
+                </div>
                   <div class="c-post__title">
                     <?php echo the_title(); ?>
                   </div>
@@ -40,9 +41,7 @@
                       <div class="c-tag__text"><?php echo $tag->name; ?></div>
                     </div>
                     <?php endforeach; ?>
-
                   </div>
-                </div>
               </div>
             </a>
           </div>
@@ -80,7 +79,7 @@
       <?php if ($my_query -> have_posts()): ?>
       <?php while ($my_query -> have_posts()): ?>
         <?php $my_query ->the_post(); ?>
-        <a href="" class="c-post">
+        <a href="<?php the_permalink(); ?>" class="c-post">
         <div class="c-post__card">
           <div class="c-post__image">
             <?php the_post_thumbnail(); ?>
