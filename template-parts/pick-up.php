@@ -55,18 +55,18 @@
               <?php $pick_up_query -> the_post(); ?>
           <div class="swiper-slide p-pick-up__slider">
             <a href="<?php the_permalink(); ?>" class="c-post">
-              <div class="c-post__card p-pick-up__card">
+              <div class="c-post__card u-card__padding">
                 <div class="c-post__image">
                   <?php echo the_post_thumbnail(); ?>
                 </div>
                 <div class="c-post__content">
                   <time datetime="<?php the_time('c'); ?>"  class="c-post__date"><?php the_time('Y.m.j'); ?></time>
-                  <div class="c-post__title">
+                  <div class="c-post__title u-current__title-ls u-card__title-top">
                     <?php echo the_title(); ?>
                   </div>
                   <?php $cat =get_the_category(); ?>
                   <?php if($cat[0]): ?>
-                  <div class="c-post__category color__<?php echo $cat[0]->term_id; ?>"><?php echo $cat[0]->name; ?></div>
+                  <div class="c-post__category u-post__category-top color__<?php echo $cat[0]->term_id; ?>"><?php echo $cat[0]->name; ?></div>
                   <?php endif; ?>
                   <div class="c-post__tag">
                     <?php $tags=get_the_tags(); ?>

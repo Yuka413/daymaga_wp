@@ -57,7 +57,7 @@ const pickUp_swiper = new Swiper(".p-pick-up__swiper", {
     },
     1000: {
       slidesPerView: 3.2,
-      spaceBetween: 32,
+      spaceBetween: 34,
     },
   },
 

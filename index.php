@@ -80,18 +80,18 @@
       <?php while ($my_query -> have_posts()): ?>
         <?php $my_query ->the_post(); ?>
         <a href="<?php the_permalink(); ?>" class="c-post">
-        <div class="c-post__card ">
+        <div class="c-post__card u-card__padding ">
           <div class="c-post__image">
             <?php the_post_thumbnail(); ?>
           </div>
           <div class="c-post__content">
             <time datetime="<?php the_time('c'); ?>" class="c-post__date"><?php the_time('Y.m.j'); ?></time>
-            <div class="c-post__title">
+            <div class="c-post__title u-current__title-ls u-card__title-top">
               <?php the_title(); ?>
             </div>
             <?php $cat = get_the_category(); ?>
             <?php if($cat[0]): ?>
-            <div class="c-post__category color__<?php echo $cat[0]->term_id; ?>"><?php echo $cat[0]->name; ?></div>
+            <div class="c-post__category u-post__category-top color__<?php echo $cat[0]->term_id; ?>"><?php echo $cat[0]->name; ?></div>
             <?php endif; ?>
             <div class="c-post__tag">
               <?php $tags = get_the_tags(); ?>
@@ -159,7 +159,7 @@
 
 
 <div class="p-category-posts__body">
-  <div class="p-category-posts__body-inner">
+  <div class="p-category-posts__body-inner <?php echo is_home() ? 'u-min-height' : ''; ?>">
     <div class="p-category-posts__body-cards">
       <?php $args = array (
     'post_type' => 'post',
@@ -171,18 +171,18 @@
         <?php $all_query->the_post(); ?>
         <?php $category = get_the_category(); ?>
         <a  href="<?php the_permalink(); ?>" class="c-post js-category-post" id="<?php echo $category[0] -> slug; ?>">
-            <div class="c-post__card">
+            <div class="c-post__card u-card__padding">
               <div class="c-post__image">
                 <?php the_post_thumbnail(); ?>
               </div>
               <div class="c-post__content">
                 <time datetime="<?php the_time('c'); ?>"  class="c-post__date"><?php the_time('Y.m.j') ?></time>
-                <div class="c-post__title">
+                <div class="c-post__title u-card__title-top">
                   <?php the_title(); ?>
                 </div>
                 <?php $cat = get_the_category(); ?>
                 <?php if($cat[0]): ?>
-                <div class="c-post__category color__<?php echo $cat[0]->term_id; ?>"><?php echo $cat[0]->name; ?></div>
+                <div class="c-post__category u-post__category-top color__<?php echo $cat[0]->term_id; ?>"><?php echo $cat[0]->name; ?></div>
                 <?php endif; ?>
                 <div class="c-post__tag">
                   <?php $tags = get_the_tags(); ?>

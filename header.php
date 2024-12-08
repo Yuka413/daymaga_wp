@@ -31,11 +31,11 @@
   </head>
   <body>
     <header class="l-header">
-      <div class="l-header__inner">
-        <div class="l-header__body">
-          <div class="l-header__content l-header-content">
+      <div class="l-header__inner ">
+        <div class="l-header__body ">
+          <div class="l-header__content l-header-content ">
             <?php if(is_front_page()): ?>
-            <h1 class="l-header-content__logo">
+            <h1 class="l-header-content__logo ">
               <a href="<?php echo home_url(''); ?>" class="l-header__logo-link">
                 <img class="js-initial-logo" src="<?php echo get_template_directory_uri(); ?>/img/logo-all.png" alt="DayMaga" />
                 <img class="js-scroll-logo" src="<?php echo get_template_directory_uri(); ?>/img/logo-scroll.png" alt="DayMaga" />
