@@ -13,11 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="shortcut icon"
-      href="<?php echo get_template_directory_uri(); ?>/img/symbol-color.png"
-      type="image/x-icon"
-    />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
