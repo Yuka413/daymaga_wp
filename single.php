@@ -1,4 +1,6 @@
 <?php get_header(); ?>
+<?php setPostViews(get_the_ID()); ?>
+
 
     <section class="p-single">
       <div class="p-single__inner">
@@ -36,7 +38,6 @@
             </div>
       </div>
     </section>
-<?php {set_post_views(get_the_ID());} ?>
 
 <?php get_template_part('template-parts/pick-up'); ?>
 

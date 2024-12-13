@@ -32,18 +32,32 @@ function my_setup() {
 
 
 //  おすすめ記事を表示するために、投稿の閲覧数を取得
- function set_post_views($postID) {
-    $count_key = 'post_views_count';
-    $count = get_post_meta($postID, $count_key, true);
-    if($count==''){
-        $count = 0;
-        delete_post_meta($postID, $count_key);
-        add_post_meta($postID, $count_key, '0');
-    }else{
-      $count++;
-      update_post_meta($postID, $count_key, $count);
-    }
+function getPostViews($postID) {
+  $count_key = 'post_views_count';
+  $count = get_post_meta($postID, $count_key, true);
+  if ($count=='') {
+    delete_post_meta($postID, $count_key);
+    add_post_meta($postID, $count_key, '0');
+    return "0 View";
   }
+  return $count.' Views';
+}
+
+// 記事PVカウント
+function setPostViews($postID) {
+  $count_key = 'post_views_count';
+  $count = get_post_meta($postID, $count_key, true);
+  if ($count=='') {
+    $count = 0;
+    delete_post_meta($postID, $count_key);
+    add_post_meta($postID, $count_key, '0');
+  } else {
+    $count++;
+    update_post_meta($postID, $count_key, $count);
+  }
+}
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+
 /**
  * アーカイブタイトル書き換え
  */

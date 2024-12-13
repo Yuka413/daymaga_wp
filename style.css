@@ -603,7 +603,13 @@ a.c-post__category:hover {
   flex-direction: row;
   gap: 8px;
   margin-top: 12px;
-  overflow: hidden;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.c-post__tag::-webkit-scrollbar {
+  display: none;
 }
 
 .c-post-tag__item {
@@ -668,7 +674,6 @@ a.c-post__category:hover {
   color: #fff;
   font-family: "Zen Maru Gothic", serif;
   font-size: 18px;
-  font-weight: 700;
   letter-spacing: 3.6px;
   line-height: 1.8;
   padding: 6px 24px;
@@ -1676,7 +1681,7 @@ h4.wp-block-heading::before {
 .p-keyword {
   margin-left: auto;
   margin-right: auto;
-  max-width: 1034px;
+  max-width: calc(1034px + 20px * 2);
   padding-bottom: 48px;
 }
 
@@ -2103,10 +2108,6 @@ h4.wp-block-heading::before {
   .p-keyword__body {
     gap: 16px;
     padding: 36px 92px 35px;
-  }
-
-  .p-keyword__inner {
-    padding-inline: 0;
   }
 
   .p-keyword__search img {

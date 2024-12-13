@@ -110,9 +110,7 @@
         <?php endif; ?>
     </div>
     <div class="p-button__container">
-      <div class="c-button-d">
-        <a href="<?php echo get_category_link($cat[0]); ?>" class="c-button-d__link"> もっと見る </a>
-      </div>
+        <a href="<?php echo get_category_link($cat[0]); ?>" class="c-button-d"> もっと見る </a>
     </div>
   </div>
 </section>
@@ -152,9 +150,9 @@
       </div>
       <div class="p-category-posts__wrapper--secondary">
       <div class="p-category-posts__order">
-        <a class="p-category-posts__order-text is-active">新着順</a>
+        <a href="" class="p-category-posts__order-text is-active">新着順</a>
         <span class="p-category-posts__order-line"></span>
-        <a class="p-category-posts__order-text">人気順</a>
+        <a href="" class="p-category-posts__order-text">人気順</a>
       </div>
 
 
@@ -219,9 +217,7 @@
     </div>
   </div>
     <div class="p-category-post__button">
-        <div class="c-button-d">
-          <a href="<?php echo get_post_type_archive_link('/'); ?>all" class="c-button-d__link">もっと見る </a>
-        </div>
+          <a href="<?php echo get_post_type_archive_link('/'); ?>all" class="c-button-d">もっと見る </a>
       </div>
     </div>
   </section>

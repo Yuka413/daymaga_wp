@@ -27,12 +27,14 @@
 <div class="p-category-posts__body">
   <div class="p-category-posts__body-inner body-color__<?php echo $category->term_id; ?>">
     <div class="p-category-posts__body-cards">
-      <?php 
+      <?php
+      $paged = get_query_var('paged') ? get_query_var('paged') : 1;
       $category_id = get_queried_object_id();
       $args = array (
     'post_type' => 'post',
     'cat' =>$category_id,
     'posts_per_page' => 9,
+    'paged' => $paged,
     );
     $all_query = new WP_query($args); ?>
     <?php if($all_query->have_posts()): ?>
@@ -65,7 +67,6 @@
             </div>
           </a>
         <?php endwhile; ?>
-        <?php wp_reset_postdata(); ?>
         <?php endif; ?>
 
             </div>
@@ -84,7 +85,7 @@
                 </div>
             </div>
             <?php endif; ?>
-            <?php wp_reset_postdata(); ?>
+            <!-- <?php wp_reset_postdata(); ?> -->
         </div>
       </div>
     </div>
@@ -93,11 +94,14 @@
   <div class="c-pagination">
   <div class="c-pagination__inner">
     	<!-- pagination -->
+
         <?php if (paginate_links()) ;?>
 	<div class="pagination">
               <?php
               echo paginate_links(
                   array(
+                      'total' => $all_query->max_num_pages,
+                      'current' => $paged,
                       'end_size' =>1,
                       'mid_size' =>1,
                       'prev_next' =>true,
@@ -106,6 +110,7 @@
                   )
                   );
                   ?>
+                  <?php wp_reset_postdata(); ?>
 	</div><!-- /pagination -->
           </div>
         </div>
