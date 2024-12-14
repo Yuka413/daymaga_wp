@@ -31,32 +31,59 @@ function my_setup() {
  add_shortcode('quotation', 'quotation_shortcode');
 
 
-//  おすすめ記事を表示するために、投稿の閲覧数を取得
-function getPostViews($postID) {
-  $count_key = 'post_views_count';
-  $count = get_post_meta($postID, $count_key, true);
-  if ($count=='') {
-    delete_post_meta($postID, $count_key);
-    add_post_meta($postID, $count_key, '0');
-    return "0 View";
+ function post_view_count() {
+  global $post;
+  $post_id = $post->ID;
+  $meta_key = 'post_views_count';
+  $views = get_post_meta($post_id, $meta_key, true);
+
+  if ($views === '') {
+    delete_post_meta($post_id, $meta_key);
+    add_post_meta($post_id, $meta_key, '0');
+  } else {
+    $views++;
+    update_post_meta($post_id, $meta_key, $views);
   }
-  return $count.' Views';
 }
 
-// 記事PVカウント
-function setPostViews($postID) {
-  $count_key = 'post_views_count';
-  $count = get_post_meta($postID, $count_key, true);
-  if ($count=='') {
-    $count = 0;
-    delete_post_meta($postID, $count_key);
-    add_post_meta($postID, $count_key, '0');
-  } else {
-    $count++;
-    update_post_meta($postID, $count_key, $count);
+// 投稿管理画面に「閲覧数」カラムを追加
+function add_views_column($columns) {
+  $columns['post_views'] = '閲覧数';
+  return $columns;
+}
+add_filter('manage_posts_columns', 'add_views_column');
+
+// カスタムカラムにデータを表示
+function show_views_column($column_name, $post_id) {
+  if ($column_name === 'post_views') {
+      $views = get_post_meta($post_id, 'post_views_count', true);
+      echo $views ? $views : '0'; // 閲覧数がなければ 0 を表示
   }
 }
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+add_action('manage_posts_custom_column', 'show_views_column', 10, 2);
+
+// 閲覧数カラムをソート可能に
+function make_views_column_sortable($columns) {
+  $columns['post_views'] = 'post_views_count';
+  return $columns;
+}
+add_filter('manage_edit-post_sortable_columns', 'make_views_column_sortable');
+
+// ソートロジックを追加
+function sort_views_column($query) {
+  if (!is_admin()) {
+      return;
+  }
+
+  $orderby = $query->get('orderby');
+
+  if ($orderby === 'post_views_count') {
+      $query->set('meta_key', 'post_views_count');
+      $query->set('orderby', 'meta_value_num');
+  }
+}
+add_action('pre_get_posts', 'sort_views_column');
+
 
 /**
  * アーカイブタイトル書き換え
@@ -99,5 +126,47 @@ function post_has_archive( $args, $post_type ) {
 }
 add_filter( 'register_post_type_args', 'post_has_archive', 10, 2 );
 
+
+// Ajax用投稿取得処理
+function get_posts_by_category() {
+  // スラッグを取得
+  $slug = isset($_GET['slug']) ? sanitize_text_field($_GET['slug']) : 'all';
+
+  // デフォルトクエリ設定
+  $args = array(
+      'post_type' => 'post',
+      'posts_per_page' => 9, // 表示する投稿数
+  );
+
+  // カテゴリー条件を追加
+  if ($slug !== 'all') {
+      $category = get_category_by_slug($slug);
+      if ($category) {
+          $args['cat'] = $category->term_id;
+      }
+  }
+
+  // 投稿を取得
+  $query = new WP_Query($args);
+
+  if ($query->have_posts()) :
+      while ($query->have_posts()) : $query->the_post();
+          ?>
+          <article>
+              <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+              <p><?php the_excerpt(); ?></p>
+          </article>
+          <?php
+      endwhile;
+  else :
+      echo '<p>投稿がありません。</p>';
+  endif;
+
+  wp_reset_postdata();
+  wp_die(); // Ajaxの終了
+}
+add_action('wp_ajax_get_posts_by_category', 'get_posts_by_category');
+add_action('wp_ajax_nopriv_get_posts_by_category', 'get_posts_by_category');
 ?>
+
 

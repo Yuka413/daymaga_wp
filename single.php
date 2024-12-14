@@ -1,5 +1,6 @@
 <?php get_header(); ?>
-<?php setPostViews(get_the_ID()); ?>
+
+<?php post_view_count(); ?>
 
 
     <section class="p-single">
