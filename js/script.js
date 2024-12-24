@@ -152,28 +152,113 @@ $(window).on("scroll", function () {
   }
 });
 
-// 新着順、人気順クリックで色が変わる
+// // 新着順、人気順の実装
 $(document).ready(function () {
-  $('.p-category-posts__order-text').on('click', function (e) {
-    e.preventDefault();
-    $('.p-category-posts__order-text').removeClass('is-active');
-    $(this).addClass('is-active');
+  $(".js-post-new__category").css("display", "block");
+  $(".js-post-popular__category").css("display", "none");
+  $("#js-tab-new").on("click", function (event) {
+    event.preventDefault();
+    $(".js-post-new__category").css("display", "block");
+    $(".js-post-popular__category").css("display", "none");
+  });
+  $("#js-tab-popular").on("click", function (event) {
+    event.preventDefault();
+    $(".js-post-popular__category").css("display", "block");
+    $(".js-post-new__category").css("display", "none");
   });
 });
 
-
-// 新着順、人気順の実装
+// // 新着順、人気順の実装
 $(document).ready(function () {
-  $(".js-new").css("display", "block");
-  $(".js-popular").css("display", "none");
-  $("#js-new").on("click", function (event) {
+  $(".js-post-new__tag").css("display", "block");
+  $(".js-post-popular__tag").css("display", "none");
+  $("#js-tab-new").on("click", function (event) {
     event.preventDefault();
-    $(".js-new").css("display", "block");
-    $(".js-popular").css("display", "none");
+    $(".js-post-new__tag").css("display", "block");
+    $(".js-post-popular__tag").css("display", "none");
   });
-  $("#js-popular").on("click", function (event) {
+  $("#js-tab-popular").on("click", function (event) {
     event.preventDefault();
-    $(".js-popular").css("display", "block");
-    $(".js-new").css("display", "none");
+    $(".js-post-popular__tag").css("display", "block");
+    $(".js-post-new__tag").css("display", "none");
+  });
+});
+
+$(document).ready(function () {
+  // 初期状態の設定
+  $(".js-post-new").show();
+  $(
+    ".js-post-new__secondary, .js-post-popular, .js-post-popular__secondary"
+  ).hide();
+
+  // タブをクリックしたときの処理
+  $("[data-slug]").on("click", function updateView(slug) {
+    var slug = $(this).data("slug");
+    var isNewActive = $("#js-tab-new").hasClass("is-active");
+    var isPopularActive = $("#js-tab-popular").hasClass("is-active");
+
+    if (slug === "all" && isNewActive) {
+      // 新着順タブがアクティブでdata-slug="all"の場合
+      $(".js-post-new").show();
+      $(
+        ".js-post-new__secondary, .js-post-popular, .js-post-popular__secondary"
+      ).hide();
+    } else if (slug !== "all" && isNewActive) {
+      // 新着順タブがアクティブでdata-slugが'all'以外の場合
+      $(".js-post-new__secondary").show();
+      $(".js-post-new, .js-post-popular, .js-post-popular__secondary").hide();
+    } else if (slug === "all" && isPopularActive) {
+      // 人気順タブがアクティブでdata-slug="all"の場合
+      $(".js-post-popular").show();
+      $(
+        ".js-post-new, .js-post-new__secondary, .js-post-popular__secondary"
+      ).hide();
+    } else {
+      // 人気順タブがアクティブでdata-slugが'all'以外の場合
+      $(".js-post-popular__secondary").show();
+      $(".js-post-new, .js-post-new__secondary, .js-post-popular").hide();
+    }
+  });
+
+  // 新着順タブクリック処理
+  $("#js-tab-new").on("click", function (event) {
+    event.preventDefault();
+    $("#js-tab-new").addClass("is-active");
+    $("#js-tab-popular").removeClass("is-active");
+    // 現在アクティブなタブの data-slug を取得
+    var activeSlug = $("[data-slug].is-active").data("slug");
+
+    if (activeSlug === "all") {
+      // data-slug="all" の場合、新着順の "all" コンテンツを表示
+      $(".js-post-new").show();
+      $(
+        ".js-post-new__secondary, .js-post-popular, .js-post-popular__secondary"
+      ).hide();
+    } else {
+      // data-slug が "all" 以外の場合、そのタブに対応する新着順コンテンツを表示
+      $('.js-post-new__secondary').show();
+      $(".js-post-new, .js-post-popular, .js-post-popular__secondary").hide();
+    }
+  });
+
+  // 人気順タブクリック処理
+  $("#js-tab-popular").on("click", function (event) {
+    event.preventDefault();
+    $("#js-tab-popular").addClass("is-active");
+    $("#js-tab-new").removeClass("is-active");
+    // 現在アクティブなタブの data-slug を取得
+    var activeSlug = $("[data-slug].is-active").data("slug");
+
+    if (activeSlug === "all") {
+      // data-slug="all" の場合、新着順の "all" コンテンツを表示
+      $(".js-post-popular").show();
+      $(
+        ".js-post-new__secondary, .js-post-new, .js-post-popular__secondary"
+      ).hide();
+    } else {
+      // data-slug が "all" 以外の場合、そのタブに対応する新着順コンテンツを表示
+      $('.js-post-popular__secondary').show();
+      $(".js-post-new, .js-post-popular, .js-post-new__secondary").hide();
+    }
   });
 });

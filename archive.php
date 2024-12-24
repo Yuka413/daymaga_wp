@@ -85,7 +85,7 @@
                 </div>
             </div>
             <?php endif; ?>
-            <!-- <?php wp_reset_postdata(); ?> -->
+            <?php wp_reset_postdata(); ?>
         </div>
       </div>
     </div>
