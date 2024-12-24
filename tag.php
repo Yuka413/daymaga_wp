@@ -25,7 +25,7 @@
       </div>
 
 
-     <div class="p-category-posts__body js-post-new__tag">
+     <div class="p-category-posts__body js-post__new">
         <div class="p-category-posts__body-inner">
             <div class="p-category-posts__body-cards">
                 <?php 
@@ -91,7 +91,7 @@
         </div>
       </div>
 
-    <div class="p-category-posts__body js-post-popular__tag">
+    <div class="p-category-posts__body js-post__popular">
   <div class="p-category-posts__body-inner <?php echo is_home() ? 'u-min-height' : ''; ?>">
     <div class="p-category-posts__body-cards">
       <?php  $tag =get_queried_object();?>

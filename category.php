@@ -25,7 +25,7 @@
       </div>
 
 
-<div class="p-category-posts__body js-post-new__category">
+<div class="p-category-posts__body js-post__new">
   <div class="p-category-posts__body-inner body-color__<?php echo $category->term_id; ?>">
     <div class="p-category-posts__body-cards">
       <?php 
@@ -90,7 +90,7 @@
       </div>
     </div>
 
-    <div class="p-category-posts__body js-post-popular__category">
+    <div class="p-category-posts__body js-post__popular">
       <?php $category = get_queried_object(); ?>
   <div class="p-category-posts__body-inner <?php echo is_home() ? 'u-min-height' : ''; ?> body-color__<?php echo $category->term_id; ?>">
     <div class="p-category-posts__body-cards">

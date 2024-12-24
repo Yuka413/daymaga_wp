@@ -154,35 +154,21 @@ $(window).on("scroll", function () {
 
 // // 新着順、人気順の実装
 $(document).ready(function () {
-  $(".js-post-new__category").css("display", "block");
-  $(".js-post-popular__category").css("display", "none");
+  $(".js-post__new").css("display", "block");
+  $(".js-post__popular").css("display", "none");
   $("#js-tab-new").on("click", function (event) {
     event.preventDefault();
-    $(".js-post-new__category").css("display", "block");
-    $(".js-post-popular__category").css("display", "none");
+    $(".js-post__new").css("display", "block");
+    $(".js-post__popular").css("display", "none");
   });
   $("#js-tab-popular").on("click", function (event) {
     event.preventDefault();
-    $(".js-post-popular__category").css("display", "block");
-    $(".js-post-new__category").css("display", "none");
+    $(".js-post__popular").css("display", "block");
+    $(".js-post__new").css("display", "none");
   });
 });
 
-// // 新着順、人気順の実装
-$(document).ready(function () {
-  $(".js-post-new__tag").css("display", "block");
-  $(".js-post-popular__tag").css("display", "none");
-  $("#js-tab-new").on("click", function (event) {
-    event.preventDefault();
-    $(".js-post-new__tag").css("display", "block");
-    $(".js-post-popular__tag").css("display", "none");
-  });
-  $("#js-tab-popular").on("click", function (event) {
-    event.preventDefault();
-    $(".js-post-popular__tag").css("display", "block");
-    $(".js-post-new__tag").css("display", "none");
-  });
-});
+
 
 $(document).ready(function () {
   // 初期状態の設定
