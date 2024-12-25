@@ -414,7 +414,7 @@
 
 
     <div class="p-category-post__button">
-          <a href="<?php echo get_post_type_archive_link('/'); ?>all" class="c-button-d">もっと見る </a>
+          <a href="<?php echo get_post_type_archive_link('post'); ?>/all" class="c-button-d">もっと見る </a>
       </div>
   </section>
   <!-- すべての記事ここまで -->

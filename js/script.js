@@ -152,7 +152,7 @@ $(window).on("scroll", function () {
   }
 });
 
-// // 新着順、人気順の実装
+// 新着順、人気順の実装
 $(document).ready(function () {
   $(".js-post__new").css("display", "block");
   $(".js-post__popular").css("display", "none");
@@ -168,7 +168,28 @@ $(document).ready(function () {
   });
 });
 
+// archiveページでの新着順、人気順の実装
+$(function () {
+  $(".js-post__archive-new").show();
+  $(".js-post__archive-popular").hide();
 
+  $("#js-tab-new").on("click", function (event) {
+    event.preventDefault();
+    $("#js-tab-new").addClass("is-active");
+    $("#js-tab-popular").removeClass("is-active");
+    $(".js-post__archive-new").show();
+    $(".js-post__archive-popular").hide();
+  });
+
+  $("#js-tab-popular").on("click", function (event) {
+    event.preventDefault();
+    $("#js-tab-new").removeClass("is-active");
+    $("#js-tab-popular").addClass("is-active");
+    $(".js-post__archive-popular").show();
+    $(".js-post__archive-new").hide();
+
+  });
+});
 
 $(document).ready(function () {
   // 初期状態の設定
@@ -222,7 +243,7 @@ $(document).ready(function () {
       ).hide();
     } else {
       // data-slug が "all" 以外の場合、そのタブに対応する新着順コンテンツを表示
-      $('.js-post-new__secondary').show();
+      $(".js-post-new__secondary").show();
       $(".js-post-new, .js-post-popular, .js-post-popular__secondary").hide();
     }
   });
@@ -243,7 +264,7 @@ $(document).ready(function () {
       ).hide();
     } else {
       // data-slug が "all" 以外の場合、そのタブに対応する新着順コンテンツを表示
-      $('.js-post-popular__secondary').show();
+      $(".js-post-popular__secondary").show();
       $(".js-post-new, .js-post-popular, .js-post-new__secondary").hide();
     }
   });
